@@ -21,6 +21,7 @@ module.exports = {
           '15px',
           {
             fontWeight: '400',
+            lineHeight: '25px',
           },
         ],
         subtitle: [
@@ -60,19 +61,16 @@ module.exports = {
 
       colors: {
         primary: {
-          default: '#30C88F',
-          light: '#2ab6d9',
+          default: '#FF7E1B',
         },
         bodytext: {
-          base: '#9597A5', // body color and primary color
+          base: '#69707D', // body color and primary color
         },
         heading: {
           base: '#2D314D', // primary heading color
         },
-        link: '#3074d9',
         background: {
           default: '#FFFFFF', // body background color
-          secondary: '#F4F5F7', // section background color
         },
       },
     },

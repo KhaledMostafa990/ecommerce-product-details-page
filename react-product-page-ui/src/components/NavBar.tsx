@@ -17,7 +17,7 @@ export const NavBar = ({ navRef, navListRef, navListItems }: { navRef: any, navL
             >
                 <ul
                     ref={navListRef}
-                    className='flex flex-col p-5 pt-20 lg:p-0 lg:flex-row'
+                    className='flex flex-col lg:items-center p-5 pt-20 lg:p-0 lg:flex-row'
                 >
                     {navListItems.map((item, index) => {
                         return (
@@ -30,7 +30,7 @@ export const NavBar = ({ navRef, navListRef, navListItems }: { navRef: any, navL
                                     [&.active]:text-primary-default [&.active]:border-primary-default
                                     [&.active]:hover:rounded-none [&.active]:hover:bg-transparent 
                                     [&.active]:hover:px-0 hover:text-primary-default
-                                    lg:text-base lg:hover:rounded-full lg:hover:bg-primary-default/[0.25] hover:lg:px-3 lg:py-4 ${index === 0 && 'active'}`}>
+                                    lg:text-base lg:hover:rounded-full lg:hover:bg-primary-default/[0.25] hover:lg:px-2 lg:py-4 [&.active]:lg:py-4 lg:hover:lg:py-1  ${index === 0 && 'active'}`}>
                                     {item}
                                 </a>
                             </li>

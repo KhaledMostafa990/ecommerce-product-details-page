@@ -41,7 +41,7 @@ export default function Navigation({ data }: { data: NavProps }) {
 
             <div
                 ref={headerRef}
-                className='container fixed bg-background-default
+                className='container bg-background-default
                 shadow-sm transition-all duration-[0.84s]'
             >
                 <div
