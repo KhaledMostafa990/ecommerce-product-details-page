@@ -25,19 +25,21 @@ const products = [
         title: 'Fall Limited Edition Sneakers',
         subtitle: "sneaker company",
         description: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
-        price: 125,
-        discount: 25,
+        price: 250,
+        discountPerCent: 50,
         quantity: 1,
         images: {
             main: [
                 productImage1,
                 productImage2,
                 productImage3,
+                productImage4
             ],
             thumbnails: [
                 productImage1Thumbnail,
                 productImage2Thumbnail,
                 productImage3Thumbnail,
+                productImage4Thumbnail
             ]
         }
     },
@@ -47,7 +49,7 @@ const products = [
         subtitle: "sneaker company",
         description: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
         price: 125,
-        discount: 25,
+        discountPerCent: 25,
         quantity: 1,
         images: {
             main: [

@@ -52,7 +52,7 @@ export default function Navigation({ data }: { data: NavProps }) {
                     <Overlay overlayRef={overlayRef} />
 
                     <div className='flex items-center gap-5'>
-                        <div className='z-30'>
+                        <div className='z-30 lg:hidden'>
                             <HamburgerButton onClick={toggleMenu} menuBtnRef={menuBtnRef} />
                         </div>
                         <Logo logoSrc={logoSrc} />
