@@ -11,7 +11,7 @@ export const NavBar = ({ navRef, navListRef, navListItems }: { navRef: any, navL
                 id='nav'
                 ref={navRef}
                 className='bg-background-default h-screen min-w-[65%] 
-                max-w-sm absolute top-0 left-0 translate-x-[-100%] [&.active]:translate-x-[-0%]
+                max-w-sm absolute top-0 left-0 translate-x-[-140%] [&.active]:translate-x-[-0%]
                 transition-all duration-700 [&.active]:block lg:min-w-fit
                 lg:static lg:h-fit lg:w-fit lg:translate-x-0 lg:translate-y-0'
             >

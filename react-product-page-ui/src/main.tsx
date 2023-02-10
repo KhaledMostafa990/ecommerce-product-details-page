@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { QueryClientProvider, QueryClient } from 'react-query';
-
+import { Provider as ReduxProvider } from 'react-redux';
+import store from './store'
 import './index.scss'
 import App from './App'
 
@@ -14,8 +15,10 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
 
-        <App />
-        <ReactQueryDevtools initialIsOpen={false} />
+        <ReduxProvider store={store}>
+          <App />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </ReduxProvider>
 
       </QueryClientProvider>
     </BrowserRouter>

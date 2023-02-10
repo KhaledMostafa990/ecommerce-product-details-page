@@ -13,7 +13,7 @@ import Section from '../components/Section'
 
 export default function Home() {
     return (
-        <Section className=''>
+        <Section className='lg:pt-20'>
             <ProductDetails {...products[0]} />
         </Section>
     )
@@ -22,6 +22,7 @@ export default function Home() {
 // products data mock
 const products = [
     {
+        id: '1',
         title: 'Fall Limited Edition Sneakers',
         subtitle: "sneaker company",
         description: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
@@ -45,6 +46,7 @@ const products = [
     },
 
     {
+        id: '2',
         title: 'Fall Limited Edition Sneakers',
         subtitle: "sneaker company",
         description: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
