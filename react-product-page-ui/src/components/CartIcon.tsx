@@ -1,10 +1,12 @@
 import React from 'react';
 
-export function CartIcon({ cartLength, cartSrc }: { cartLength: number; cartSrc: string }) {
+export function CartIcon({ cartLength, cartSrc, onClick }: { cartLength: number; cartSrc: string, onClick: () => void }) {
 
     return (
         <>
-            <div className='relative'>
+            <div
+                onClick={onClick}
+                className='relative  cursor-pointer'>
                 <div>
                     <span className='w-4 h-4 absolute top-[-4px] right-[-2px] text-[10px]
                      font-bold bg-primary-default text-background-default

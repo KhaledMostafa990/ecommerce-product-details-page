@@ -21,30 +21,23 @@ interface ProductDetailsProps {
   }
 }
 
-export default function ProductDetails({ id, title, subtitle, description, price, discountPerCent, quantity, images }: ProductDetailsProps) {
+export default function ProductDetails({ id, title, subtitle, description, price, discountPerCent, quantity: availableQuantity, images }: ProductDetailsProps) {
 
   const [lightboxOpen, setLightboxOpen] = React.useState(false);
   const [orderQuantity, setOrderQuantity] = useState(0);
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [modelActiveIndex, setModelActiveIndex] = React.useState(activeIndex);
 
+  const priceAfterDiscount = price - (price * discountPerCent / 100);
+  const priceAfterDiscountDisplay = Math.floor(priceAfterDiscount).toFixed(2);
+  const priceBeforeDiscountDisplay = Math.floor(price).toFixed(2);
 
-  const priceAfterDiscount = Math.floor(price - (price * discountPerCent / 100)).toFixed(2);
-  const priceBeforeDiscount = Math.floor(price).toFixed(2);
-
+  const cartItems = useSelector((state: { cart: Cart }) => state.cart.cartItems);
   const dispatch = useDispatch();
-  const cartData = useSelector((state: { cart: Cart }) => state.cart);
-  const cartPayload: CartItem = {
-    id,
-    name: title,
-    imageSrc: images.main[0],
-    price,
-    quantity: orderQuantity
-  }
 
   const handleOrderQuantity = (type: string) => {
     if (type === 'add') {
-      if (orderQuantity < quantity) setOrderQuantity(orderQuantity + 1);
+      if (orderQuantity < availableQuantity) setOrderQuantity(orderQuantity + 1);
     } else {
 
       if (orderQuantity > 0) setOrderQuantity(orderQuantity - 1);
@@ -52,7 +45,17 @@ export default function ProductDetails({ id, title, subtitle, description, price
   }
 
   const handleAddToCart = () => {
-    dispatch(addCartItem(cartPayload))
+    const currentCartItem = cartItems.find(item => item.id === id);
+
+    if (currentCartItem && currentCartItem.quantity + orderQuantity > availableQuantity) return;
+
+    dispatch(addCartItem({
+      id,
+      name: title,
+      imageSrc: images.main[0],
+      price: priceAfterDiscount,
+      quantity: orderQuantity,
+    }))
   }
 
 
@@ -93,10 +96,10 @@ export default function ProductDetails({ id, title, subtitle, description, price
               {/* Price with discount */}
               <div className='flex justify-between font-bold lg:flex-col lg:gap-4'>
                 <div className='flex gap-8 items-end'>
-                  <p className='text-xl text-heading-base xl:text-2xl'>${priceAfterDiscount}</p>
+                  <p className='text-xl text-heading-base xl:text-2xl'>${priceAfterDiscountDisplay}</p>
                   <span className='text-primary-default' >{discountPerCent}%</span>
                 </div>
-                <p className='text-bodytext-base/80 line-through'>${priceBeforeDiscount}</p>
+                <p className='text-bodytext-base/80 line-through'>${priceBeforeDiscountDisplay}</p>
               </div>
 
               {/* Add to cart by quantity */}
@@ -130,7 +133,6 @@ export default function ProductDetails({ id, title, subtitle, description, price
         </div>
 
         {/* Product Images preview with lightbox model on desktop */}
-
         <div
           className='w-full col-start-0 col-span-12
           lg:col-start-2 lg:col-end-7 xl:pl-10 4xl:pl-20 4xl:col-start-3'
