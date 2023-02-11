@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Cart, CartItem, removeCartItem } from '../store/cart';
+import { PrimaryButton } from './PrimaryButton';
 
 export function CartItemsList() {
 
@@ -13,9 +14,9 @@ export function CartItemsList() {
         dispatch(removeCartItem({ ...currentCartItem, id }))
     }
     return (
-        <>
+        <div className='h-full py-2'>
             {cartItems.map((item: CartItem, idx: number) => (
-                <div key={idx} className='flex items-center gap-4'>
+                <div key={idx} className='flex items-center gap-4 py-2'>
                     <img
                         className='w-14 h-14 rounded-md'
                         src={item.imageSrc}
@@ -53,7 +54,10 @@ export function CartItemsList() {
 
                 </div>
             ))}
+            <PrimaryButton className="w-full">
+                Checkout
+            </PrimaryButton>
 
-        </>
+        </div>
     );
 }

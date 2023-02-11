@@ -12,7 +12,9 @@ export function LightboxModel({ children, lightboxOpen, handleOpenLightboxModel 
             <div
                 className='fixed inset-0 bg-black/50 z-30' />
 
-            <div className='relative max-w-[550px] max-h-[550px] z-40 mb-28'>
+            <div
+                className='relative max-w-[450px] max-h-[450px] z-40 mb-28 
+                2xl:max-w-[550px] 2xl:max-h-[550px]'>
 
                 {/* preview */}
 

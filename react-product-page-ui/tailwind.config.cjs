@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -11,6 +12,7 @@ module.exports = {
       '3xl': '1600px',
       '4xl': '1920px',
     },
+    plugins: [require('tailwind-scrollbar-hide')],
     extend: {
       fontFamily: {
         'primary-sans': `Kumbh Sans, sans-serif`,

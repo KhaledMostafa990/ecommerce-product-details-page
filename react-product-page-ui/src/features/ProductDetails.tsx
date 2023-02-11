@@ -1,13 +1,10 @@
-import { MainActiveSlide, NavigateButtons, ProductImagesPreview, ThumbnailsRow } from './../components/productImagesPreview';
-import { LightboxModel } from "./../components/LightboxModel";
 import React, { useEffect, useState } from 'react'
-import { BaseButton } from '../components/BaseButton';
-import { PrimaryButton } from '../components/PrimaryButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCartItem, Cart, CartItem } from '../store/cart';
+import { addCartItem, Cart } from '../store/cart';
 
-// product compoenent interface 
-interface ProductDetailsProps {
+import { ProductImagesPreview, LightboxModel, BaseButton, PrimaryButton } from '../components';
+
+export interface ProductDetailsProps {
   id: string;
   title: string;
   subtitle: string;
@@ -21,7 +18,8 @@ interface ProductDetailsProps {
   }
 }
 
-export default function ProductDetails({ id, title, subtitle, description, price, discountPerCent, quantity: availableQuantity, images }: ProductDetailsProps) {
+export default function ProductDetails({ productData }: { productData: ProductDetailsProps }) {
+  const { id, title, subtitle, description, price, discountPerCent, quantity: availableQuantity, images } = productData;
 
   const [lightboxOpen, setLightboxOpen] = React.useState(false);
   const [orderQuantity, setOrderQuantity] = useState(0);
@@ -47,7 +45,10 @@ export default function ProductDetails({ id, title, subtitle, description, price
   const handleAddToCart = () => {
     const currentCartItem = cartItems.find(item => item.id === id);
 
-    if (currentCartItem && currentCartItem.quantity + orderQuantity > availableQuantity) return;
+    if (orderQuantity > availableQuantity ||
+      currentCartItem && currentCartItem.quantity + orderQuantity > availableQuantity) {
+      return;
+    }
 
     dispatch(addCartItem({
       id,

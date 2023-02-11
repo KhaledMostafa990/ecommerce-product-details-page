@@ -1,13 +1,10 @@
 import React, { useRef } from 'react'
 import { useSelector } from 'react-redux';
-
-import { Overlay, NavBar, Logo, HamburgerButton } from '../components'
-import { CartIcon } from '../components/CartIcon';
 import { menuClickHandler } from '../helpers/menuClickHandler';
 import { useViewportOnResize } from '../hooks/useViewportOnResize';
-import { CartItemsList } from '../components/CartItemsList';
 
-// nav compoenent interface
+import { Overlay, NavBar, Logo, HamburgerButton, CartIcon, CartItemsList } from '../components'
+
 interface NavProps {
     navListItems: string[];
     logoSrc: string;
@@ -89,25 +86,23 @@ export default function Navigation({ data }: { data: NavProps }) {
                         z-40 translate-y-[-600%] [&.active]:translate-y-[0%] transition-all duration-500 lg:top-20`}
                     >
                         <div
-                            className='flex flex-col w-full h-full max-w-[360px] min-h-[250px] py-6 px-4 
+                            className='flex flex-col w-full max-w-[360px] py-6 px-4 
                             absolute top-0 right-[0%] z-50 bg-background-default rounded-lg shadow-lg'
                         >
                             <p className='text-start font-bold text-heading-base'>Cart</p>
 
                             <hr className='w-full border border-bodytext-base/10 my-2' />
 
-                            <div className='h-full flex flex-col justify-center items-center'>
+                            <div className='relative w-full h-fit min-h-[150px] max-h-[150px] overflow-y-scroll scrollbar-hide px-3'>
                                 {cartLength <= 0 ? (
-                                    <p className='text-center text-bodytext-base'>
+                                    <p className='absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] text-center text-bodytext-base'>
                                         Your cart is empty
                                     </p>
                                 ) : (
                                     <CartItemsList />
                                 )}
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

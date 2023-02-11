@@ -1,6 +1,6 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import ProductDetailsPage from './pages/ProductDetailsPage'
 import Collections from './pages/Collections'
 import Notfound from './pages/Notfound'
 import Navigation from './features/Navigation'
@@ -13,10 +13,14 @@ function App() {
   return (
     <div className="App font-primary-sans">
       <Navigation data={navData} />
-
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Navigate to={'/men'} replace />} />
+
+        <Route path="/men" element={<ProductDetailsPage />} />
+        <Route path="/women" element={<ProductDetailsPage />} />
+
         <Route path="/collections" element={<Collections />} />
+
         <Route path="*" element={<Notfound />} />
       </Routes>
     </div>
