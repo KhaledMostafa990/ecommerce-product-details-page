@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "jsx": "react-jsx",
+    "moduleDetection": "auto",
+    "module": "NodeNext",
+    "rootDir": ".",
+    "outDir": "./dist",
+    "moduleResolution": "Node",
+    "removeComments": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": false
+  },
+
+  "exclude": ["node_modules"]
+}

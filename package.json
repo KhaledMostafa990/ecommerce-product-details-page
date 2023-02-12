@@ -1,9 +1,54 @@
 {
+  "name": "ecommerce-product-page-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.tsx",
+  "scripts": {
+    "serve": "npm-run-all build:server start:serve",
+    "dev": "npm-run-all -p watch:server start:dev",
+    "start:serve": "node dist/server.js",
+    "start:dev": "nodemon dist/server.js",
+    "watch:server": "webpack --config webpack.config.js --watch",
+    "build:server": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KhaledMostafa990/ecommerce-product-details-page.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KhaledMostafa990/ecommerce-product-details-page/issues"
+  },
+  "homepage": "https://github.com/KhaledMostafa990/ecommerce-product-details-page#readme",
   "dependencies": {
-    "react-swipeable-views": "^0.14.0",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "@reduxjs/toolkit": "^1.9.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.7.0",
+    "jsdom": "^21.1.0",
+    "typescript": "^4.9.3"
   },
   "devDependencies": {
-    "@types/react-swipeable-views": "^0.13.1"
+    "@types/jsdom": "^21.1.0",
+    "@types/cors": "^2.8.12",
+    "@types/helmet": "^0.0.45",
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-router-dom": "^5.3.2",
+    "dotenv": "^16.0.3",
+    "ignore-loader": "^0.1.2",
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
+    "ts-loader": "^9.4.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-node-externals": "^3.0.0"
   }
 }
