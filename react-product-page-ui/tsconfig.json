@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2016",
+    "target": "ES5",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
@@ -13,8 +13,12 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "noEmit": false,
+    "jsx": "react-jsx",
+    "moduleDetection": "auto",
+    "rootDir": ".",
+    "outDir": "./dist",
+    "removeComments": true
   },
   "include": ["src"],
   "paths": {
