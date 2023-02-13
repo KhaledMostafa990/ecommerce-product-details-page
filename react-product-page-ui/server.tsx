@@ -18,6 +18,9 @@ import App from './src/App';
 const PORT = process.env.PORT || 3000;
 type corsCallback = (err: Error | null, allowed: boolean) => {};
 const allowedOrigins = ['http://127.0.0.1:8080', 'http://localhost:8080'];
+
+if (process.env.ALLOWED_ORIGINS) allowedOrigins.push(process.env.ALLOWED_ORIGINS);
+
 const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
     if (allowedOrigins.indexOf(`${origin}`) !== -1 || !origin) {
