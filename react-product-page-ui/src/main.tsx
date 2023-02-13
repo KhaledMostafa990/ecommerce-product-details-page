@@ -10,7 +10,7 @@ import App from './App'
 
 const queryClient = new QueryClient()
 
-ReactDOM.hydrateRoot(document.getElementById('root') as HTMLElement,
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
@@ -22,5 +22,5 @@ ReactDOM.hydrateRoot(document.getElementById('root') as HTMLElement,
 
       </QueryClientProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 )
