@@ -34,13 +34,17 @@ export function ProductImagesPreview(props: any) {
 }
 
 export function MainActiveSlide({ images, activeIndex, handleOpenLightboxModel, title }: { images: string[]; activeIndex: number, handleOpenLightboxModel: (isOpen: boolean) => void, title: string }) {
+
     return (
         <div className='flex cursor-pointer'>
+            <link rel="preload" href={images[activeIndex]} as="image" />
+
             <img
                 className='object-cover rounded-xl '
                 onClick={() => handleOpenLightboxModel(true)}
                 src={images[activeIndex]}
-                alt={title} />
+                alt={title}
+            />
         </div>
     );
 }
@@ -94,7 +98,7 @@ export function NavigateButtons({ isModel, slidesLength, activeIndex, setActiveI
         >
             <BaseButton
                 onClick={handlePrev}
-                className='bg-white py-2 px-2 max-w-[32px] max-h-[32px] rounded-full'
+                className='bg-white py-2 px-2 w-[32px] max-w-[32px] h-[32px] max-h-[32px] rounded-full'
             >
                 <svg width="100%" height="100%" viewBox="0 0 13 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path id="Path 2" d="M11 2L3 10L11 18" stroke="#1D2026" strokeWidth="3" />
@@ -103,7 +107,7 @@ export function NavigateButtons({ isModel, slidesLength, activeIndex, setActiveI
 
             <BaseButton
                 onClick={handleNext}
-                className='bg-white py-2 px-2 max-w-[32px] max-h-[32px] rounded-full'
+                className='bg-white py-2 px-2 w-[32px] max-w-[32px] h-[32px] max-h-[32px] rounded-full'
             >
                 <svg width="100%" height="100%" viewBox="0 0 13 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path id="Path 2" d="M2 2L10 10L2 18" stroke="#1D2026" strokeWidth="3" />

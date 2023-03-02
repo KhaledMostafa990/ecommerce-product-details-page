@@ -21,9 +21,9 @@ export function LightboxModel({ children, lightboxOpen, handleOpenLightboxModel 
                 {children}
 
                 {/* close button  */}
-                <div className='absolute top-[-7%] right-0'>
+                <div className='absolute top-[-10%] right-0'>
                     <BaseButton
-                        className='py-0 px-0'
+                        className='py-3 px-2'
                         onClick={() => handleOpenLightboxModel(false)}
                     >
                         <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">

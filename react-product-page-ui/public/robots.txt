@@ -1,0 +1,9 @@
+# Block specific bots
+User-agent: BadBot1
+Disallow: /
+
+User-agent: BadBot2
+Disallow: /
+
+# Allow all other bots
+User-agent: *
