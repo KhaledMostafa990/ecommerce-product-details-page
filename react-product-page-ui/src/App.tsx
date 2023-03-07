@@ -14,14 +14,15 @@ function App() {
     <div className="App font-primary-sans">
       <Navigation data={navData} />
       <Routes>
-        <Route path="/" element={<Navigate to={'/men'} replace />} />
+        <Route path="/" element={<ProductDetailsPage />}>
 
-        <Route path="/men" element={<ProductDetailsPage />} />
-        <Route path="/women" element={<ProductDetailsPage />} />
+          <Route path="/men" element={<ProductDetailsPage />} />
+          <Route path="/women" element={<ProductDetailsPage />} />
+        </Route>
 
         <Route path="/collections" element={<Collections />} />
 
-        <Route path="*" element={<Notfound />} />
+        <Route path="/*" element={<Notfound />} />
       </Routes>
     </div>
   )

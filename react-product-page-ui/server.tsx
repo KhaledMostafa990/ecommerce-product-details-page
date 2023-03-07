@@ -35,7 +35,7 @@ async function start() {
 
     app.use(express.static(path.join(__dirname, '..', 'dist'), { index: false, maxAge: 7 * 24 * 60 * 60 * 1000 }));
 
-    app.get('/*', (req: Request, res: Response) => {
+    app.get('*', (req: Request, res: Response) => {
       const envPath = path.join(__dirname, '..', 'dist', 'index.html');
       const templatePath = path.resolve(envPath);
 

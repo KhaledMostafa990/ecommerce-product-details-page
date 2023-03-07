@@ -15,7 +15,7 @@ module.exports = {
       },
       // The follwing extesions are ignored as they're compiled by vite in the react app
       { test: /\.(scss|css)$/, loader: 'ignore-loader' },
-      { test: /\.(svg|jpg|png)$/, loader: 'ignore-loader' },
+      { test: /\.(svg|jpg|png)$/, loader: 'url-loader' },
     ],
   },
 

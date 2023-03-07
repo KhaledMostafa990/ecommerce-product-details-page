@@ -9,7 +9,7 @@
     "serve": "npm-run-all build start",
     "dev": "npm-run-all -p watch start:dev",
     "start": "node dist/server.js",
-    "start:dev": "nodemon dist/server.js",
+    "start:dev": "nodemon server.tsx",
     "build": "tsc && vite build && webpack --config webpack.config.cjs",
     "watch": "webpack --config webpack.config.cjs --watch"
   },

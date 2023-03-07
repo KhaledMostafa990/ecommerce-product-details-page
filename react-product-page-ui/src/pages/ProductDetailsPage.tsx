@@ -13,15 +13,18 @@ import { useLocation } from 'react-router'
 
 
 export default function ProductDetailsPage() {
+    let product;
     const { pathname } = useLocation();
 
-    const productId = pathname.split('/')[1];
-    const product = products.filter(product => product.id === productId) as ProductDetailsProps[];
+    if (pathname.length > 1) {
+        const productId = pathname.split('/')[1];
+        product = products.find(product => product.id === productId) as ProductDetailsProps;
+    } else product = products[0];
 
     return (
         <main>
             <Section className='lg:pt-20'>
-                <ProductDetails productData={product[0]} />
+                <ProductDetails productData={product} />
             </Section>
         </main>
     )

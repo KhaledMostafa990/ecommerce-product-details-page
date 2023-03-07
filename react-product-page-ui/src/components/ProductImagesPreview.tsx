@@ -1,5 +1,7 @@
 import React from "react";
 import { BaseButton } from "./BaseButton";
+import NavigateLeftIcon from "../assets/icon-previous.svg";
+import NavigateRightIcon from "../assets/icon-next.svg";
 
 export function ProductImagesPreview(props: any) {
     const { title, images, isModel, activeIndex, setActiveIndex, handleOpenLightboxModel } = props;
@@ -98,20 +100,16 @@ export function NavigateButtons({ isModel, slidesLength, activeIndex, setActiveI
         >
             <BaseButton
                 onClick={handlePrev}
-                className='bg-white py-2 px-2 w-[32px] max-w-[32px] h-[32px] max-h-[32px] rounded-full'
+                className='bg-white p-0 py-1 px-1 max-w-fit min-h-[32px]'
             >
-                <svg width="100%" height="100%" viewBox="0 0 13 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path id="Path 2" d="M11 2L3 10L11 18" stroke="#1D2026" strokeWidth="3" />
-                </svg>
+                <img className="" src={NavigateLeftIcon} alt='navigate left' />
             </BaseButton>
 
             <BaseButton
                 onClick={handleNext}
-                className='bg-white py-2 px-2 w-[32px] max-w-[32px] h-[32px] max-h-[32px] rounded-full'
+                className='bg-white p-0 py-1 px-1 max-w-fit min-h-[32px]'
             >
-                <svg width="100%" height="100%" viewBox="0 0 13 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path id="Path 2" d="M2 2L10 10L2 18" stroke="#1D2026" strokeWidth="3" />
-                </svg>
+                <img className="" src={NavigateRightIcon} alt='navigate right' />
             </BaseButton>
         </div>
     );
